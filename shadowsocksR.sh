@@ -4,9 +4,9 @@ export PATH
 #=================================================================#
 #   System Required:  CentOS 6,7, Debian, Ubuntu                  #
 #   Description: One click Install ShadowsocksR Server            #
-#   Author: Teddysun <i@teddysun.com>                             #
+#   Author: tinyhari <tinyhari@gmail.com>                         #
 #   Thanks: @breakwa11 <https://twitter.com/breakwa11>            #
-#   Intro:  https://shadowsocks.be/9.html                         #
+#   Intro:  https://shadowsocks                                   #
 #=================================================================#
 
 clear
@@ -14,7 +14,7 @@ echo
 echo "#############################################################"
 echo "# One click Install ShadowsocksR Server                     #"
 echo "# Intro: https://shadowsocks.be/9.html                      #"
-echo "# Author: Teddysun <i@teddysun.com>                         #"
+echo "# Author: tinyhari <i@teddysun.com>                         #"
 echo "# Thanks: @breakwa11 <https://twitter.com/breakwa11>        #"
 echo "#############################################################"
 echo
@@ -215,15 +215,15 @@ function config_shadowsocks(){
     "local_port":1080,
     "password":"${shadowsockspwd}",
     "timeout":120,
-    "method":"aes-256-cfb",
-    "protocol":"origin",
+    "method":"RC4-MD5",
+    "protocol":"auth_sha1_v2_compatible",
     "protocol_param":"",
-    "obfs":"plain",
+    "obfs":"tls1.0_session_auth_compatible",
     "obfs_param":"",
     "redirect":"",
     "dns_ipv6":false,
-    "fast_open":false,
-    "workers":1
+    "fast_open":true,
+    "workers":16
 }
 EOF
 }
